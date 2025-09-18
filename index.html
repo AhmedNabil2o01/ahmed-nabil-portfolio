@@ -619,6 +619,20 @@
       .social-link:hover::before {
         left: 100%;
       }
+      .social-link {
+        text-decoration: none; /* يزيل الخط */
+        color: inherit; /* يأخذ لون النص أو حدده بنفسك */
+      }
+      .social-link:hover {
+        color: var(--accent); /* لون عند الهوفر */
+      }
+      .social-link i {
+        font-size: 1.8rem;
+        transition: color 0.3s ease, transform 0.3s ease;
+      }
+      .social-link:hover i {
+        transform: scale(1.2);
+      }
 
       footer {
         text-align: center;
@@ -1094,18 +1108,20 @@
       </section>
 
       <div class="social-links">
+        <!-- Instagram -->
         <a
-          href="mailto:M1ahmednabil2152001@gmail.com"
+          href="https://www.instagram.com/ahmed_nabil2115?igsh=d2NpZ2E3ZTJleTZv&utm_source=qr"
+          target="_blank"
+          rel="noopener noreferrer"
           class="social-link"
-          title="Email"
+          title="Instagram"
         >
-          <i class="fa-solid fa-envelope"></i>
+          <i class="fa-brands fa-instagram"></i>
         </a>
-        <a href="tel:+201144087754" class="social-link" title="Phone">
-          <i class="fa-solid fa-phone"></i>
-        </a>
+
+        <!-- LinkedIn -->
         <a
-          href="https://www.linkedin.com/in/ahmed-nabil"
+          href="https://www.linkedin.com/in/ahmed-nabil-3721332b9?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app[]"
           target="_blank"
           rel="noopener noreferrer"
           class="social-link"
@@ -1113,6 +1129,8 @@
         >
           <i class="fa-brands fa-linkedin"></i>
         </a>
+
+        <!-- Facebook -->
         <a
           href="https://www.facebook.com/share/1AUbUvVx4t/?mibextid=wwXIfr"
           target="_blank"
@@ -1122,6 +1140,8 @@
         >
           <i class="fa-brands fa-facebook"></i>
         </a>
+
+        <!-- GitHub -->
         <a
           href="https://github.com/AhmedNabil2o01"
           target="_blank"
