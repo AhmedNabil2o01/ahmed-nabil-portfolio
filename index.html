@@ -1017,62 +1017,73 @@
         </div>
       </section>
 
-     <section id="contact">
-  <h2>Contact Me</h2>
-  <form class="contact-form" action="https://formspree.io/f/xandgryj" method="POST">
-    <!-- Name -->
-    <div class="form-group">
-      <label for="name">Your Name</label>
-      <input
-        type="text"
-        id="name"
-        name="name"
-        placeholder="Enter your name"
-        required
-      />
-    </div>
+      <section id="contact">
+        <h2>Contact Me</h2>
 
-    <!-- Phone -->
-    <div class="form-group">
-      <label for="phone">Your Phone</label>
-      <input
-        type="tel"
-        id="phone"
-        name="phone"
-        placeholder="+20 1XXXXXXXXX"
-        pattern="[0-9+\-\s]{7,20}"
-        required
-      />
-    </div>
+        <!-- إرسال مباشر إلى Formspree بدون أي JS إضافي -->
+        <form
+          class="contact-form"
+          action="https://formspree.io/f/xandgryj"
+          method="POST"
+        >
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              placeholder="Enter your name"
+              required
+            />
+          </div>
 
-    <!-- Email -->
-    <div class="form-group">
-      <label for="email">Your Email</label>
-      <input
-        type="email"
-        id="email"
-        name="_replyto"
-        placeholder="you@example.com"
-        required
-      />
-    </div>
+          <div class="form-group">
+            <label for="phone">Your Phone</label>
+            <input
+              id="phone"
+              name="phone"
+              type="tel"
+              placeholder="+20 1XXXXXXXXX"
+              pattern="[0-9+\-\s]{7,20}"
+              required
+            />
+          </div>
 
-    <!-- Message -->
-    <div class="form-group">
-      <label for="message">Message</label>
-      <textarea
-        id="message"
-        name="message"
-        placeholder="I'd like to discuss..."
-        rows="6"
-        required
-      ></textarea>
-    </div>
+          <div class="form-group">
+            <label for="email">Your Email</label>
+            <!-- خلي الاسم 'email' أفضل مع Formspree -->
+            <input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="you@example.com"
+              required
+            />
+          </div>
 
-    <button type="submit">Send Message</button>
-  </form>
-</section>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="6"
+              placeholder="I'd like to discuss..."
+              required
+            ></textarea>
+          </div>
 
+          <!-- (اختياري) عنوان يظهر في الإيميل -->
+          <input
+            type="hidden"
+            name="_subject"
+            value="New message from portfolio"
+          />
+
+          <button type="submit">Send Message</button>
+        </form>
+        <p id="form-status" style="margin-top: 1rem; opacity: 0.9"></p>
+      </section>
+      []
 
       <div class="social-links">
         <a href="#" class="social-link">📧</a>
@@ -1115,7 +1126,16 @@
         });
       });
 
-     
+      const fsForm = document.querySelector(".contact-form");
+      const fsStatus = document.getElementById("form-status");
+
+      fsForm.addEventListener("submit", () => {
+        // ما بنمنعش الإرسال — مجرد رسالة بعد الضغط
+        setTimeout(() => {
+          fsStatus.textContent = "Thanks! Your message has been sent.";
+        }, 300);
+      });
+      [];
 
       // Add floating particles
       function createParticles() {
